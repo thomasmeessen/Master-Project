@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     11327,        274]
-NotebookOptionsPosition[     10449,        253]
-NotebookOutlinePosition[     10782,        268]
-CellTagsIndexPosition[     10739,        265]
+NotebookDataLength[     13302,        311]
+NotebookOptionsPosition[     12107,        285]
+NotebookOutlinePosition[     12441,        300]
+CellTagsIndexPosition[     12398,        297]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -75,8 +75,7 @@ Cell[BoxData[{
    3.762847379423044*^9, 3.7628473977568274`*^9}, {3.7628475618261423`*^9, 
    3.762847562381753*^9}, 3.7628488736538467`*^9, {3.762848956172097*^9, 
    3.762848965040771*^9}},
- CellLabel->
-  "In[133]:=",ExpressionUUID->"8baa1091-7813-4558-96ed-643a390a3836"],
+ CellLabel->"In[1]:=",ExpressionUUID->"8baa1091-7813-4558-96ed-643a390a3836"],
 
 Cell["Data from the amplifier sheet", "Text",
  CellChangeTimes->{{3.762849805248742*^9, 
@@ -101,8 +100,7 @@ Cell[BoxData[{
    3.762847608199121*^9}, 3.762847764253975*^9, {3.762847813906232*^9, 
    3.76284781714456*^9}, 3.762847852028942*^9, {3.7628479139676857`*^9, 
    3.762847960435006*^9}},
- CellLabel->
-  "In[136]:=",ExpressionUUID->"d8d5bbc1-d8cd-4713-a993-3de8c5c922b4"],
+ CellLabel->"In[4]:=",ExpressionUUID->"d8d5bbc1-d8cd-4713-a993-3de8c5c922b4"],
 
 Cell["Representing the impact of the gain choice", "Text",
  CellChangeTimes->{{3.762849823373374*^9, 
@@ -112,59 +110,63 @@ Cell["Representing the impact of the gain choice", "Text",
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
-  RowBox[{
+ RowBox[{"man", " ", "=", " ", 
+  RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"afterGain", " ", "=", " ", "sensor"}], ";", 
-    "\[IndentingNewLine]", 
     RowBox[{
-     RowBox[{"afterGain", "[", 
-      RowBox[{"[", 
-       RowBox[{"All", ",", "2"}], " ", "]"}], "]"}], " ", "=", " ", 
+     RowBox[{"afterGain", " ", "=", " ", "sensor"}], ";", 
+     "\[IndentingNewLine]", 
      RowBox[{
-      RowBox[{"sensor", "[", 
+      RowBox[{"afterGain", "[", 
        RowBox[{"[", 
-        RowBox[{"All", ",", "2"}], " ", "]"}], "]"}], " ", "/", "G"}]}], ";", 
-    "\[IndentingNewLine]", 
-    RowBox[{"beforeGain", " ", "=", " ", "sensor"}], ";", 
-    "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"beforeGain", "[", 
-      RowBox[{"[", 
-       RowBox[{"All", ",", "2"}], " ", "]"}], "]"}], " ", "=", " ", 
-     RowBox[{"UnitConvert", "[", " ", 
+        RowBox[{"All", ",", "2"}], " ", "]"}], "]"}], " ", "=", " ", 
       RowBox[{
        RowBox[{"sensor", "[", 
         RowBox[{"[", 
-         RowBox[{"All", ",", "2"}], " ", "]"}], "]"}], ",", "\"\<V\>\""}], 
-      "]"}]}], ";", "\[IndentingNewLine]", 
-    RowBox[{"axesLabels", " ", "=", " ", 
-     RowBox[{"{", " ", 
-      RowBox[{"\"\<Weight (kg)\>\"", ",", " ", "\"\<Voltage (V)\>\""}], 
-      "}"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", " ", 
-    RowBox[{"ListPlot", "[", 
+         RowBox[{"All", ",", "2"}], " ", "]"}], "]"}], " ", "/", "G"}]}], ";",
+      "\[IndentingNewLine]", 
+     RowBox[{"beforeGain", " ", "=", " ", "sensor"}], ";", 
+     "\[IndentingNewLine]", 
      RowBox[{
-      RowBox[{"{", 
-       RowBox[{"afterGain", ",", " ", "beforeGain", ",", " ", 
-        RowBox[{"{", 
+      RowBox[{"beforeGain", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], " ", "]"}], "]"}], " ", "=", " ", 
+      RowBox[{"UnitConvert", "[", " ", 
+       RowBox[{
+        RowBox[{"sensor", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", "2"}], " ", "]"}], "]"}], ",", "\"\<V\>\""}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"axesLabels", " ", "=", " ", 
+      RowBox[{"{", " ", 
+       RowBox[{"\"\<Weight (kg)\>\"", ",", " ", "\"\<Voltage (V)\>\""}], 
+       "}"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", " ", 
+     RowBox[{"ListPlot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"afterGain", ",", " ", "beforeGain", ",", " ", 
          RowBox[{"{", 
-          RowBox[{"80", ",", "20"}], "}"}], "}"}]}], " ", "}"}], ",", 
-      RowBox[{"AxesLabel", "\[Rule]", " ", "axesLabels"}], ",", " ", 
-      RowBox[{"PlotLabels", "\[Rule]", 
-       RowBox[{"{", 
-        RowBox[{
-        "\"\<Applied Gain\>\"", ",", "\"\<Raw sensor\>\"", ",", 
-         "\"\<Maximum operating Force and Voltage\>\""}], "}"}]}], ",", 
-      "\[IndentingNewLine]", " ", 
-      RowBox[{"PlotLabel", "\[Rule]", 
-       RowBox[{"\"\< Gain =  \>\"", " ", "<>", " ", 
-        RowBox[{"ToString", "[", " ", "G", "]"}]}]}], ",", " ", 
-      RowBox[{"Joined", "\[Rule]", " ", 
-       RowBox[{"{", 
-        RowBox[{"True", ",", " ", "True", ",", " ", "False"}], "}"}]}]}], 
-     "]"}]}], ",", "\[IndentingNewLine]", 
-   RowBox[{"{", 
-    RowBox[{"G", ",", "gain"}], "}"}]}], "]"}]], "Input",
+          RowBox[{"{", 
+           RowBox[{"80", ",", "amplifierInputVoltage"}], " ", "}"}], "}"}]}], 
+        " ", "}"}], ",", 
+       RowBox[{"AxesLabel", "\[Rule]", " ", "axesLabels"}], ",", " ", 
+       RowBox[{"PlotLabels", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Applied Gain\>\"", ",", "\"\<Raw sensor\>\"", ",", 
+          "\"\<Maximum operating Force and Voltage\>\""}], "}"}]}], ",", 
+       "\[IndentingNewLine]", " ", 
+       RowBox[{"PlotLabel", "\[Rule]", 
+        RowBox[{"\"\< Gain =  \>\"", " ", "<>", " ", 
+         RowBox[{"ToString", "[", " ", "G", "]"}]}]}], ",", " ", 
+       RowBox[{"Joined", "\[Rule]", " ", 
+        RowBox[{"{", 
+         RowBox[{"True", ",", " ", "True", ",", " ", "False"}], "}"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{"G", ",", "gain"}], "}"}]}], "]"}]}]], "Input",
  CellChangeTimes->{{3.7628479662372503`*^9, 3.7628479694967613`*^9}, {
   3.7628480049869204`*^9, 3.762848054475643*^9}, {3.762848091337256*^9, 
   3.7628480958465767`*^9}, {3.7628482040867662`*^9, 3.762848279110297*^9}, {
@@ -173,9 +175,10 @@ Cell[BoxData[
   3.762849261447406*^9, 3.7628493006289577`*^9}, {3.7628493505758867`*^9, 
   3.762849550050159*^9}, {3.762849607899159*^9, 3.762849608274564*^9}, {
   3.762849640271399*^9, 3.76284967478865*^9}, {3.7628497179087*^9, 
-  3.7628497253026752`*^9}},
- CellLabel->
-  "In[138]:=",ExpressionUUID->"3dd24634-db42-4edc-a119-ab3cccded717"],
+  3.7628497253026752`*^9}, {3.7630097034155807`*^9, 3.7630097246007967`*^9}, {
+  3.763010089486804*^9, 3.7630100930486393`*^9}, {3.763010587742869*^9, 
+  3.763010591797162*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"3dd24634-db42-4edc-a119-ab3cccded717"],
 
 Cell[BoxData[
  TagBox[
@@ -193,13 +196,13 @@ Cell[BoxData[
        Quantity[3, "Millivolts"/"Volts"], 
        Quantity[4, "Millivolts"/"Volts"], 
        Quantity[10, "Millivolts"/"Volts"]}}}, Typeset`size$$ = {
-    657., {146., 153.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`G$137965$$ = 0}, 
+    1194., {308., 314.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`G$356249$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
       "Variables" :> {$CellContext`G$$ = Quantity[0.5, "Millivolts"/"Volts"]},
        "ControllerVariables" :> {
-        Hold[$CellContext`G$$, $CellContext`G$137965$$, 0]}, 
+        Hold[$CellContext`G$$, $CellContext`G$356249$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -212,14 +215,15 @@ Cell[BoxData[
        Part[$CellContext`beforeGain, All, 2] = UnitConvert[
           Part[$CellContext`sensor, All, 2], "V"]; $CellContext`axesLabels = {
          "Weight (kg)", "Voltage (V)"}; 
-       ListPlot[{$CellContext`afterGain, $CellContext`beforeGain, {{80, 20}}},
-          AxesLabel -> $CellContext`axesLabels, 
+       ListPlot[{$CellContext`afterGain, $CellContext`beforeGain, {{
+           80, $CellContext`amplifierInputVoltage}}}, 
+         AxesLabel -> $CellContext`axesLabels, 
          PlotLabels -> {
           "Applied Gain", "Raw sensor", 
            "Maximum operating Force and Voltage"}, PlotLabel -> 
          StringJoin[" Gain =  ", 
-           ToString[$CellContext`G$$]], Joined -> {True, True, False}]), 
-      "Specifications" :> {{$CellContext`G$$, {
+           ToString[$CellContext`G$$]], Joined -> {True, True, False}, 
+         ImageSize -> Full]), "Specifications" :> {{$CellContext`G$$, {
           Quantity[0.5, "Millivolts"/"Volts"], 
           Quantity[1, "Millivolts"/"Volts"], 
           Quantity[1.5, "Millivolts"/"Volts"], 
@@ -229,7 +233,7 @@ Cell[BoxData[
           Quantity[4, "Millivolts"/"Volts"], 
           Quantity[10, "Millivolts"/"Volts"]}}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{704., {195., 202.}},
+     ImageSizeCache->{1241., {356., 363.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -246,13 +250,41 @@ Cell[BoxData[
    3.7628493013451233`*^9}, 3.762849423919394*^9, {3.76284947007808*^9, 
    3.7628495508981943`*^9}, 3.7628496095207767`*^9, {3.7628496476901903`*^9, 
    3.762849675551421*^9}, {3.762849721059279*^9, 3.7628497262988873`*^9}, 
-   3.7628498435677223`*^9},
- CellLabel->
-  "Out[138]=",ExpressionUUID->"8ec9fb23-f504-4352-a51d-75cddb1dbad0"]
+   3.7628498435677223`*^9, 3.763009636949601*^9, {3.763009708875497*^9, 
+   3.7630097252790318`*^9}, 3.763010093728615*^9, 3.76301059244591*^9},
+ CellLabel->"Out[17]=",ExpressionUUID->"f95f7172-1d60-424e-a059-f562f9ab37e9"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.763010097299819*^9, 3.763010101235807*^9}, {
+  3.763010201165143*^9, 3.7630102657081633`*^9}, {3.763010351605543*^9, 
+  3.763010360003647*^9}},ExpressionUUID->"a2244a88-424d-4808-bd9b-\
+5e38ce09c895"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+  "\"\</mountain/tmeessen/Documents/ULB/ProjectAnkle/Master \
+Project/gain.gif\>\"", ",", "man", ",", " ", 
+   RowBox[{"\"\<DisplayDurations\>\"", " ", "\[Rule]", " ", 
+    RowBox[{"{", "3", "}"}]}], ",", " ", 
+   RowBox[{"\"\<AnimationRepetition\>\"", " ", "\[Rule]", " ", 
+    RowBox[{"{", "3", "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.763010600759708*^9, 3.7630106300998993`*^9}, {
+  3.763010876996229*^9, 3.763010894992548*^9}, {3.763011021950451*^9, 
+  3.763011043914563*^9}},ExpressionUUID->"fb196eb4-02b4-4604-8150-\
+48010f892638"],
+
+Cell[BoxData["\<\"/mountain/tmeessen/Documents/ULB/ProjectAnkle/Master \
+Project/gain.gif\"\>"], "Output",
+ CellChangeTimes->{3.76301067476475*^9, 3.763010939377514*^9},
+ CellLabel->"Out[19]=",ExpressionUUID->"d3a379fc-6e35-465c-a6d0-6232ad573115"]
 }, Open  ]]
 },
-WindowSize->{808, 621},
-WindowMargins->{{Automatic, 0}, {29, Automatic}},
+WindowSize->{Full, Full},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
 FrontEndVersion->"11.3 for Linux x86 (64-bit) (March 6, 2018)",
 StyleDefinitions->"Default.nb"
 ]
@@ -268,13 +300,18 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[558, 20, 190, 3, 36, "Text",ExpressionUUID->"d509c77c-f291-4c78-adb1-067bea8a9111"],
-Cell[751, 25, 2080, 53, 101, "Input",ExpressionUUID->"8baa1091-7813-4558-96ed-643a390a3836"],
-Cell[2834, 80, 171, 3, 36, "Text",ExpressionUUID->"b779327a-5659-4a44-8aac-96f76e5b4330"],
-Cell[3008, 85, 851, 19, 55, "Input",ExpressionUUID->"d8d5bbc1-d8cd-4713-a993-3de8c5c922b4"],
-Cell[3862, 106, 186, 3, 36, "Text",ExpressionUUID->"5ba359d2-0809-499e-9eb0-2370ab483667"],
+Cell[751, 25, 2075, 52, 78, "Input",ExpressionUUID->"8baa1091-7813-4558-96ed-643a390a3836"],
+Cell[2829, 79, 171, 3, 36, "Text",ExpressionUUID->"b779327a-5659-4a44-8aac-96f76e5b4330"],
+Cell[3003, 84, 846, 18, 55, "Input",ExpressionUUID->"d8d5bbc1-d8cd-4713-a993-3de8c5c922b4"],
+Cell[3852, 104, 186, 3, 36, "Text",ExpressionUUID->"5ba359d2-0809-499e-9eb0-2370ab483667"],
 Cell[CellGroupData[{
-Cell[4073, 113, 2808, 64, 285, "Input",ExpressionUUID->"3dd24634-db42-4edc-a119-ab3cccded717"],
-Cell[6884, 179, 3549, 71, 449, "Output",ExpressionUUID->"8ec9fb23-f504-4352-a51d-75cddb1dbad0"]
+Cell[4063, 111, 3158, 69, 285, "Input",ExpressionUUID->"3dd24634-db42-4edc-a119-ab3cccded717"],
+Cell[7224, 182, 3730, 72, 738, "Output",ExpressionUUID->"f95f7172-1d60-424e-a059-f562f9ab37e9"]
+}, Open  ]],
+Cell[10969, 257, 249, 4, 31, "Input",ExpressionUUID->"a2244a88-424d-4808-bd9b-5e38ce09c895"],
+Cell[CellGroupData[{
+Cell[11243, 265, 597, 12, 31, "Input",ExpressionUUID->"fb196eb4-02b4-4604-8150-48010f892638"],
+Cell[11843, 279, 248, 3, 35, "Output",ExpressionUUID->"d3a379fc-6e35-465c-a6d0-6232ad573115"]
 }, Open  ]]
 }
 ]
