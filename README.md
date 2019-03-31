@@ -26,7 +26,7 @@ A protocol for calibration have been proposed.
 
 #### Assembly
 
-#### Protection of the trreadmill
+#### Protection of the treadmill
 
 
 To protect the rubber band from the pressure applied by the sharp point a protective measure is needed.
@@ -41,7 +41,7 @@ A  plate of mdf was used.
 The power supply used for the amplifier CSG110 was a Topward 6303DS set up to provide 20 V to a CSG110 amplification module.
 The CSG110 sensor excitation voltage was set to match the reference for the LCM300 (10V) and the amplifier gain was set to be 1 mV/V after comparison of the calibration data for the LCM,with regard to the operational range expected not to be higher than 80kg and with the voltage limitation of 20 V in mind.
 
-** Insert graph **
+![Voltage range as a function of gain]({{ site.url }}/assets/gain_choice.gif)
 
 
 #### Zero Setting
@@ -57,7 +57,7 @@ The multimeter used for validation was ANENG AN8008 S/N 73802820.
 
 Simple measures have been done:
 * The load sensor presented the referenced input/output resistance : measured : 744 / _reference : 743_
-* Voltage out from the power supply : measured : 20.2V /_reference : 20.1V_
+* Voltage out from the power supply : measured : 20.2V / _reference : 20.1V_
 * Excitation at sensor's pin:
 * Signal + Voltage after amplification and before acquisition:
 
