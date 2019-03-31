@@ -22,7 +22,7 @@ A protocol for calibration have been proposed.
   * Calibration file from the constructor obtained: _Master Project/Calibration/Futek/FutekLCM300.pdf_
 * Amplifier Module : Futek CSG110 S/N 272035
   * Calibration from Futek:
-  * Power supply: Topward 6303DS
+* Power supply: Topward 6303DS
 
 #### Assembly
 
@@ -56,10 +56,11 @@ After assembly a series of test have been done to verify the instrument.
 The multimeter used for validation was ANENG AN8008 S/N 73802820.
 
 Simple measures have been done:
-* The load sensor presented the referenced input/output resistance : measured : 744 / _reference : 743_
-* Voltage out from the power supply : measured : 20.2V / _reference : 20.1V_
-* Excitation at sensor's pin:
-* Signal + Voltage after amplification and before acquisition:
+* The load sensor presented the referenced input/output resistance :  744 Ohms / _reference : 743 Ohms_
+* Voltage out from the power supply :  20.2V / _reference : 20.1V_
+* Excitation at sensor's pin : / _reference : 10 V_
+* Signal voltage after amplification and before acquisition: no saturation observed
+* Voltage Noise : measured :  / _Expected : 35mV_
 
 __From those measures it is deduced than the instrument are well connected and alimented.__
 
@@ -67,4 +68,7 @@ Than a set of know weight were applied to the RFA to validate the amplification 
 
 #### Troubleshooting
 
-The first attempt to set the amplification module to an excitation of 10 V and a gain of 1 mv/V resulted in the CSG110 being in a state where it had an constant senor output whether or not the sensor was connected.
+The first attempt to set the amplification module to an excitation of 10 V and a gain of 1 mV/V resulted in the CSG110 being in a state where it had an constant sensor output independently of the sensor's state.
+When opened the sensor also shown indication of a resistor replacement.
+
+**Insert Pictures**
