@@ -41,7 +41,7 @@ A  plate of mdf was used.
 The power supply used for the amplifier CSG110 was a Topward 6303DS set up to provide 20 V to a CSG110 amplification module.
 The CSG110 sensor excitation voltage was set to match the reference for the LCM300 (10V) and the amplifier gain was set to be 1 mV/V after comparison of the calibration data for the LCM,with regard to the operational range expected not to be higher than 80kg and with the voltage limitation of 20 V in mind.
 
-![Voltage range as a function of gain]({{ site.url }}/assets/gain_choice.gif)
+![Voltage range as a function of gain](/assets/gain_choice.gif)
 
 
 #### Zero Setting
