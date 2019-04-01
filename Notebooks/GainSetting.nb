@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     13302,        311]
-NotebookOptionsPosition[     12107,        285]
-NotebookOutlinePosition[     12441,        300]
-CellTagsIndexPosition[     12398,        297]
+NotebookDataLength[     13747,        322]
+NotebookOptionsPosition[     12552,        296]
+NotebookOutlinePosition[     12886,        311]
+CellTagsIndexPosition[     12843,        308]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -150,40 +150,49 @@ Cell[BoxData[
            RowBox[{"80", ",", "amplifierInputVoltage"}], " ", "}"}], "}"}]}], 
         " ", "}"}], ",", 
        RowBox[{"AxesLabel", "\[Rule]", " ", "axesLabels"}], ",", " ", 
-       RowBox[{"PlotLabels", "\[Rule]", 
+       RowBox[{"PlotLabels", "\[Rule]", " ", 
         RowBox[{"{", 
          RowBox[{
-         "\"\<Applied Gain\>\"", ",", "\"\<Raw sensor\>\"", ",", 
-          "\"\<Maximum operating Force and Voltage\>\""}], "}"}]}], ",", 
-       "\[IndentingNewLine]", " ", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<After amplification\>\"", ",", 
+            RowBox[{"FontSize", "\[Rule]", "Large"}]}], "]"}], ",", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<Raw sensor\>\"", ",", 
+            RowBox[{"FontSize", "\[Rule]", "Large"}]}], "]"}], ",", 
+          RowBox[{"Style", "[", 
+           RowBox[{"\"\<Maximum (Force, Voltage)\>\"", ",", 
+            RowBox[{"FontSize", "\[Rule]", "Large"}]}], "]"}]}], "}"}]}], 
+       "  ", ",", "\[IndentingNewLine]", " ", 
        RowBox[{"PlotLabel", "\[Rule]", 
-        RowBox[{"\"\< Gain =  \>\"", " ", "<>", " ", 
-         RowBox[{"ToString", "[", " ", "G", "]"}]}]}], ",", " ", 
+        RowBox[{"Style", "[", 
+         RowBox[{
+          RowBox[{"\"\<Gain =  \>\"", " ", "<>", " ", 
+           RowBox[{"ToString", "[", " ", "G", "]"}]}], ",", 
+          RowBox[{"FontSize", "\[Rule]", "Large"}]}], "]"}]}], ",", " ", 
        RowBox[{"Joined", "\[Rule]", " ", 
         RowBox[{"{", 
          RowBox[{"True", ",", " ", "True", ",", " ", "False"}], "}"}]}], ",", 
        "\[IndentingNewLine]", 
-       RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}]}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", "Full"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"LabelStyle", "\[Rule]", "Bold"}]}], "]"}]}], ",", 
     "\[IndentingNewLine]", 
     RowBox[{"{", 
      RowBox[{"G", ",", "gain"}], "}"}]}], "]"}]}]], "Input",
- CellChangeTimes->{{3.7628479662372503`*^9, 3.7628479694967613`*^9}, {
-  3.7628480049869204`*^9, 3.762848054475643*^9}, {3.762848091337256*^9, 
-  3.7628480958465767`*^9}, {3.7628482040867662`*^9, 3.762848279110297*^9}, {
-  3.762848330073141*^9, 3.762848354341404*^9}, {3.762848421233716*^9, 
-  3.762848440322927*^9}, {3.762848941822753*^9, 3.762849108144288*^9}, {
-  3.762849261447406*^9, 3.7628493006289577`*^9}, {3.7628493505758867`*^9, 
-  3.762849550050159*^9}, {3.762849607899159*^9, 3.762849608274564*^9}, {
-  3.762849640271399*^9, 3.76284967478865*^9}, {3.7628497179087*^9, 
-  3.7628497253026752`*^9}, {3.7630097034155807`*^9, 3.7630097246007967`*^9}, {
-  3.763010089486804*^9, 3.7630100930486393`*^9}, {3.763010587742869*^9, 
-  3.763010591797162*^9}},
- CellLabel->"In[17]:=",ExpressionUUID->"3dd24634-db42-4edc-a119-ab3cccded717"],
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGCQAGIQ3Tf9uLQA5xvHiqf6MiD61pT5CmC+xXk1EH32VJY2
+iNYQ/w2mTx1rsgTRfe2PnUC0TriTJ4g+8cbLB0TPqloeAqKzQ7nCQfS/4F1T
+QTTTvJZVIFotcN1eEJ2jMOUQiF6Ve+kEiH4+6+BDEP3y6J8XINrqJMdLEO27
+nuMtiJ5vE/kRRAuJ7P0GolvWr/wOogt83orEA+ldlpPFQfSzyfquILqkbyGY
+nnq0vBlERzX9BNNC1Q5SCUDaqTRVBkR3XwxRAdEm596Yg2hWtePWIPoK9xZb
+EJ2VV+QJotX81aNAtN8S83QQvfaASw6IbppX0wumZ2VMAdHTHi6bBaJzKhNn
+g+h9LBOXguggS73lIHqN6aw9IPpnevAJEA0Aa5yk1g==
+  "],
+ CellLabel->"In[51]:=",ExpressionUUID->"3dd24634-db42-4edc-a119-ab3cccded717"],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`G$$ = Quantity[1, "Millivolts"/"Volts"], 
+   DynamicModuleBox[{$CellContext`G$$ = Quantity[0.5, "Millivolts"/"Volts"], 
     Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
     Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
     1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
@@ -196,13 +205,13 @@ Cell[BoxData[
        Quantity[3, "Millivolts"/"Volts"], 
        Quantity[4, "Millivolts"/"Volts"], 
        Quantity[10, "Millivolts"/"Volts"]}}}, Typeset`size$$ = {
-    1194., {308., 314.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`G$356249$$ = 0}, 
+    1194., {277., 283.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`G$720025$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
       "Variables" :> {$CellContext`G$$ = Quantity[0.5, "Millivolts"/"Volts"]},
        "ControllerVariables" :> {
-        Hold[$CellContext`G$$, $CellContext`G$356249$$, 0]}, 
+        Hold[$CellContext`G$$, $CellContext`G$720025$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -217,13 +226,15 @@ Cell[BoxData[
          "Weight (kg)", "Voltage (V)"}; 
        ListPlot[{$CellContext`afterGain, $CellContext`beforeGain, {{
            80, $CellContext`amplifierInputVoltage}}}, 
-         AxesLabel -> $CellContext`axesLabels, 
-         PlotLabels -> {
-          "Applied Gain", "Raw sensor", 
-           "Maximum operating Force and Voltage"}, PlotLabel -> 
-         StringJoin[" Gain =  ", 
-           ToString[$CellContext`G$$]], Joined -> {True, True, False}, 
-         ImageSize -> Full]), "Specifications" :> {{$CellContext`G$$, {
+         AxesLabel -> $CellContext`axesLabels, PlotLabels -> {
+           Style["After amplification", FontSize -> Large], 
+           Style["Raw sensor", FontSize -> Large], 
+           Style["Maximum (Force, Voltage)", FontSize -> Large]}, PlotLabel -> 
+         Style[
+           StringJoin["Gain =  ", 
+            ToString[$CellContext`G$$]], FontSize -> Large], 
+         Joined -> {True, True, False}, ImageSize -> Full, LabelStyle -> 
+         Bold]), "Specifications" :> {{$CellContext`G$$, {
           Quantity[0.5, "Millivolts"/"Volts"], 
           Quantity[1, "Millivolts"/"Volts"], 
           Quantity[1.5, "Millivolts"/"Volts"], 
@@ -233,7 +244,7 @@ Cell[BoxData[
           Quantity[4, "Millivolts"/"Volts"], 
           Quantity[10, "Millivolts"/"Volts"]}}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{1241., {356., 363.}},
+     ImageSizeCache->{1241., {325., 332.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -245,14 +256,12 @@ Cell[BoxData[
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{
-  3.7628488763000927`*^9, {3.762848945417766*^9, 3.762848969029188*^9}, {
-   3.762849081993936*^9, 3.7628491153864117`*^9}, {3.762849277103558*^9, 
-   3.7628493013451233`*^9}, 3.762849423919394*^9, {3.76284947007808*^9, 
-   3.7628495508981943`*^9}, 3.7628496095207767`*^9, {3.7628496476901903`*^9, 
-   3.762849675551421*^9}, {3.762849721059279*^9, 3.7628497262988873`*^9}, 
-   3.7628498435677223`*^9, 3.763009636949601*^9, {3.763009708875497*^9, 
-   3.7630097252790318`*^9}, 3.763010093728615*^9, 3.76301059244591*^9},
- CellLabel->"Out[17]=",ExpressionUUID->"f95f7172-1d60-424e-a059-f562f9ab37e9"]
+  3.763012306405601*^9, 3.7630124206949*^9, 3.763012451205471*^9, {
+   3.7630127405940943`*^9, 3.763012762983398*^9}, {3.76301282170185*^9, 
+   3.76301282775825*^9}, {3.763012916517396*^9, 3.76301292195814*^9}, {
+   3.763013111764533*^9, 3.763013118697432*^9}, 3.763013153278761*^9, 
+   3.763013187014476*^9},
+ CellLabel->"Out[51]=",ExpressionUUID->"2b4c0446-9bd6-4e5a-8441-e57e87f02411"]
 }, Open  ]],
 
 Cell[BoxData[""], "Input",
@@ -267,20 +276,22 @@ Cell[BoxData[
  RowBox[{"Export", "[", 
   RowBox[{
   "\"\</mountain/tmeessen/Documents/ULB/ProjectAnkle/Master \
-Project/gain.gif\>\"", ",", "man", ",", " ", 
-   RowBox[{"\"\<DisplayDurations\>\"", " ", "\[Rule]", " ", 
-    RowBox[{"{", "3", "}"}]}], ",", " ", 
+Project/assets/gain_choice.gif\>\"", ",", "man", ",", " ", 
+   RowBox[{"\"\<DisplayDurations\>\"", " ", "\[Rule]", " ", "1"}], ",", " ", 
    RowBox[{"\"\<AnimationRepetition\>\"", " ", "\[Rule]", " ", 
     RowBox[{"{", "3", "}"}]}]}], "]"}]], "Input",
  CellChangeTimes->{{3.763010600759708*^9, 3.7630106300998993`*^9}, {
-  3.763010876996229*^9, 3.763010894992548*^9}, {3.763011021950451*^9, 
-  3.763011043914563*^9}},ExpressionUUID->"fb196eb4-02b4-4604-8150-\
-48010f892638"],
+   3.763010876996229*^9, 3.763010894992548*^9}, {3.763011021950451*^9, 
+   3.763011076410428*^9}, {3.76301112115709*^9, 3.763011122231695*^9}, 
+   3.763011229644444*^9, {3.763013216599399*^9, 3.76301322229637*^9}},
+ CellLabel->"In[52]:=",ExpressionUUID->"fb196eb4-02b4-4604-8150-48010f892638"],
 
 Cell[BoxData["\<\"/mountain/tmeessen/Documents/ULB/ProjectAnkle/Master \
-Project/gain.gif\"\>"], "Output",
- CellChangeTimes->{3.76301067476475*^9, 3.763010939377514*^9},
- CellLabel->"Out[19]=",ExpressionUUID->"d3a379fc-6e35-465c-a6d0-6232ad573115"]
+Project/assets/gain_choice.gif\"\>"], "Output",
+ CellChangeTimes->{3.76301067476475*^9, 3.763010939377514*^9, 
+  3.76301108331282*^9, 3.7630111217539873`*^9, 3.763011171067995*^9, 
+  3.763011274963787*^9, 3.7630132728504133`*^9},
+ CellLabel->"Out[52]=",ExpressionUUID->"a53418dc-56a9-4ed4-941b-c14d4ea40964"]
 }, Open  ]]
 },
 WindowSize->{Full, Full},
@@ -305,13 +316,13 @@ Cell[2829, 79, 171, 3, 36, "Text",ExpressionUUID->"b779327a-5659-4a44-8aac-96f76
 Cell[3003, 84, 846, 18, 55, "Input",ExpressionUUID->"d8d5bbc1-d8cd-4713-a993-3de8c5c922b4"],
 Cell[3852, 104, 186, 3, 36, "Text",ExpressionUUID->"5ba359d2-0809-499e-9eb0-2370ab483667"],
 Cell[CellGroupData[{
-Cell[4063, 111, 3158, 69, 285, "Input",ExpressionUUID->"3dd24634-db42-4edc-a119-ab3cccded717"],
-Cell[7224, 182, 3730, 72, 738, "Output",ExpressionUUID->"f95f7172-1d60-424e-a059-f562f9ab37e9"]
+Cell[4063, 111, 3403, 78, 331, "Input",ExpressionUUID->"3dd24634-db42-4edc-a119-ab3cccded717"],
+Cell[7469, 191, 3668, 72, 676, "Output",ExpressionUUID->"2b4c0446-9bd6-4e5a-8441-e57e87f02411"]
 }, Open  ]],
-Cell[10969, 257, 249, 4, 31, "Input",ExpressionUUID->"a2244a88-424d-4808-bd9b-5e38ce09c895"],
+Cell[11152, 266, 249, 4, 31, "Input",ExpressionUUID->"a2244a88-424d-4808-bd9b-5e38ce09c895"],
 Cell[CellGroupData[{
-Cell[11243, 265, 597, 12, 31, "Input",ExpressionUUID->"fb196eb4-02b4-4604-8150-48010f892638"],
-Cell[11843, 279, 248, 3, 35, "Output",ExpressionUUID->"d3a379fc-6e35-465c-a6d0-6232ad573115"]
+Cell[11426, 274, 726, 12, 55, "Input",ExpressionUUID->"fb196eb4-02b4-4604-8150-48010f892638"],
+Cell[12155, 288, 381, 5, 35, "Output",ExpressionUUID->"a53418dc-56a9-4ed4-941b-c14d4ea40964"]
 }, Open  ]]
 }
 ]
