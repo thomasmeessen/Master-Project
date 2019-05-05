@@ -16,21 +16,35 @@ bibliography: bibliography.bib
 # Gathering empirical insights on walking pattern
 
 Accounting the external mechanical work during a normal walk was one of the first methods used to study gait.
-This have be done in a variety of way that are here briefly described and classified by complexity.
+To compute this work the walking speed were measured together with the ground reaction forces.
+Over the years those measures have be done in a variety of way that are here briefly described and classified by complexity.
 
-- __One force plate__ and a velocity tracker can be used to assess the energy flow of someone walking in a hallway.
-But during the double stance as there is a experimental cancellation of forces exerted by both legs that does not has a physical meaning[@pmid11747890].
-- __Separated plate for each limb__ resolved the problem and allowed for better pertinence of measurements however the number of gait cycles that the instrumentation can pick is limited.
+- __One force plate__ of a succession of plates in alignment coupled with velocity tracker were used to capture the walk of someone launching for a few meters before stepping on the plates.
+However this simple technique suffered from an oversight as during the double stance phase there is a experimental cancellation of forces  because both legs pushes on the same plate in opposite direction.
+This cancellation of work is a problem because it does not has a physical meaning[@pmid11747890].
+- __Separated plate for each limb__ resolved the problem and allowed for accounting the external mechanical work on separated limb.
+But the system had the inconvenient of limiting the number of gait cycles that the instrumentation could measure as the size of the force plate is a source of nonlinear error on the measure[@CAPPELLO2011724].
 - __Instrumented treadmill walk__ the combination of separated plate under a treadmill is a way to obtain data for much more strides and it's usage has been generalized [@COLLINS200959 ; @LIST201798 ; @SLOOT2015610;].
 Fortunately much of what is observed during treadmill walk can be generalized and acclimatization happen after 6 minutes of treadmill walk [@Meyer2019].
 
+With those techniques it has been possible to account the rate of energy change for center of mass of the body and to breakdown the positive and negative work of each leg as a function of the gait cycle [@Zelik876].
+Advancement in motion capture have introduced the possibility to perform 3 DOF and then 6 DOF inverse kinematic for the lower body and sometime the foot.
+Having the ability to compute the most likely force and torque distribution on the joint of the lower limb have allowed for more detailed analysis of the function of the ankle.
+Based on such data the energy rate produce by the ankle have been shown to be the most influential during the push-off phase of walking with the effect of this work being the acceleration of the lower limb that in turn contribute to the acceleration of the COM [@Zelik3676].
+This conclusion was supported by the little amount of energy generated during push-off is transmitted trough the knee joint and even less trough the hip [@Lipfert1218].
+Further study have shown that during the push-off the energy was released in an impulsive form following the alleviation of the body weight due to the knee flexion [@Lipfert1218; @pmid15845776].
 
-Building on this measure of external work exchange the introduction of motion capture system have created the possibility to perform 3 DOF then 6 DOF inverse kinematic of the lower body.
-By computing the most likely force and torque distribution that could produced observed kinematics the researchers had the possibility to isolate the role of the muscles and tendon of the ankle.
+
+Leaving the field of energy accounting and taking a closer look at the internal functioning of the extensor muscle fibers by using ultrasonographic apparatus reveal that the muscle fibers are operating near-isometrically during late-stance phase [@pmid15845776].
+This means that the muscles are not adding significant work during the push-off phase for low to medium walking speed.
+For healthy subject the consequence is that recycling the energy by elasticity at the ankle greatly reduce the metabolic footprint of the push-off phase.
+Much in a similar way that the metabolic cost for movement is reduced for many of the vertebrae [@Roberts353].
+
+Electromyography measure the activation pattern of muscles by placing electrodes on the skin of patient during walk.
+Experience have been made to highlight the reaction of the muscular activity to the use of powered exoskeleton [@Galle495]
 
 
 
- as a consequence.
 - O2 consumption is used as a proxy for the metabolic cost.
 - Electromyography measure muscle activation.
 
