@@ -203,90 +203,114 @@ The motion capture precision is falling off the scope of this work, having it be
 
 ## Design
 
-The original design for the stick is available in the literature and the stick itself can be bought.
-Nevertheless a quick description of it's characteristic is required as it have been reproduced at the lab
-The essence of the stick is to apply a precisely measured pressure.
-That mean that the force transmitted should be aligned with the force cell and that no torque is transmitted to the plate.
-It will also be used at angles up to 45° should therefore be lightweight.
+Due to the frequent need for this calibration wand a design is available in the literature.
+Even more it is available on the market, one example being the MTD-3 from Motion Lab Systems.
+Nevertheless, a description of it's characteristic is required as it has been chosen to reproduce the design at the lab.
 
 
-The torque transmission problem can be solved by ball-joint on both extremities or simply by a pointy edge.
-For the materials anything that do no bend within the 60 kg range is acceptable, in this case, metal left-over.
-The load cell (Futek LCM300) is screw at the end of the shaft and to a pointy end.
-The other point is stamped to the shaft while the two supports for optical markers are welded after insertion onto the shaft.
+The role of the wand is to apply a precisely measured pressure.
+It means that the force transmitted should be aligned with the force cell and that no torque is transmitted when used on the plate.
+In addition the calibration procedure will require to use it angles up to 45°.
+Therefore it should be reasonable lightweight so that no compensation for it's mass needs to be introduced.
 
-For orientation tracking 4 optical markers were glued on the two branches.
-An additional marker was placed for breaking the symmetry allowing to facilitate the object acquisition by the motion capture system.
 
-![Assembled stick before adding optical markers at the extremities](assets/IStick.jpg)
+Negating torque transmission is traditionally done by using ball-joints.
+A similar but simpler approach consist in creating a sharp end on both side of the main shaft, one for the handle and the other for the ground.
+However that approach would require to provide a thin protective layer to not harm the treadmill's rubber, in our case a thin mdf plate.
+
+
+For materials, the constraint is to not observe bending when a human-made force is applied and being too dense.
+Metal cylinders found at one of the lab's left-over pile met this criteria and based on it's dimension the detailed design have been drawn by Louis Flynn on CAD software for which he had experience.
+In this design, the available sensor (a load cell Futek LCM300) is screwed on one side to the main shaft and at on other side to a pointy piece of metal machined to match the shaft's dimensions.
+While the other pointy piece has been stamped to other side.
+
+
+In order to track the orientation of a line in 3D space, a common practice is to place 4 optical markers on a physical plan and then defining in the software the line of interest based on those markers.
+In practice, two small rods have been welded in approximately perpendicular position.
+Lastly, an additional marker has been placed to break the symmetry.
+This allow for an easier object acquisition by the motion capture system.
+
+![Assembled stick before adding optical markers at the extremities of the small rods.
+The sensor is visible near the ground.](assets/IStick.jpg)
+
+![Close view of the optical markers, here the symmetry-breaking marker is shown. There is a concerned that the two markers are too close to each other for good tracking performance, experimental confirmation will follow.](assets/markers.jpg)
 
 
 ## Load cell calibration
 
-* 1D Load Cell : Futek LCM300 S/N 663656
-  * Calibration file from the constructor obtained: _Master Project/Calibration/Futek/FutekLCM300.pdf_
-* Amplifier Module : Futek CSG110 S/N 272035
-  * Calibration from Futek:
+The acquisition chain is composed of the load cell amplified and then acquired by the instrument's acquisition card.
+
+Materials:
+
+* 1D Load Cell : Futek LCM300 S/N 663656, calibration file obtained from the constructor.
+* Amplifier Module : Futek CSG110 S/N 272035, manual available online
 * Power supply: Topward 6303DS
 
-#### Assembly
+### Setting-up the amplification
 
-#### Protection of the treadmill
+The power supply for the amplification module is configured AT 20v, enabling the maximum resolution.
+The sensor is supplied in energy by the CSG110 at a voltage of 10V as recommended in the sensor's manual.
+To select the gain on the signal the sensibility is retrieved from the factory's calibration data:
 
+- 22 kg : 0.4 mV/V
+- 45 kg: 0.8 mV/V
+- 68 kg : 1 mV/V
 
-To protect the rubber band from the pressure applied by the sharp point a protective measure is needed.
-The constraints are that a protective layer need to be thin to avoid creating moment and sufficiently adherent
-so that the point does not move.
+In this context the applied weight will not get higher than 70 kg for practical reasons (hard to push more) and because the calibration doesn't requires it.
+The sensor is considered to have a sensibility of 1 mv/V which means that for an supply of 10 V he will produce 10 mV of signal.
+For those characteristics the manuals of the CSG110 suggest to use the configuration 2, with only the second switch flipped up.
 
-A  plate of mdf was used.
-
-#### Axial Force measure
-##### Signal Amplification
-
-The power supply used for the amplifier CSG110 was a Topward 6303DS set up to provide 20 V to a CSG110 amplification module.
-The CSG110 sensor excitation voltage was set to match the reference for the LCM300 (10V) and the amplifier gain was set to be 1 mV/V after comparison of the calibration data for the LCM,with regard to the operational range expected not to be higher than 80kg and with the voltage limitation of 20 V in mind.
-
-![Voltage range as a function of gain](assets/gain_choice.gif)
+![Picture of the amplification module after the gain have been properly configured](assets/CSG.jpg)
 
 
-##### Zero Setting
+#### Troubleshooting
 
-To be able to use a maximal range of voltage after amplification it is important to set the zero correctly at this level.
+The first attempts to set the amplification module to an excitation of 10 V resulted in saturation from the CSG110.
+After a few attempts it was found that the small differences found on the circuit from the manual description should not have been overlooked because it was an older model.
+After a search at the lab a model conform with the circuit description was found and the setup properly worked.
+The saturation problem with the older version of the amplification modules have not been addressed.
 
-The procedure followed was as recommended in the sensor manual.
+#### Validation
 
-##### Validation
 
-After assembly a series of test have been done to verify the instrument, using the multimeter ANENG AN8008 S/N 73802820.
+After assembly a series of test have been done to verify the instrument, using the multimeter ANENG AN8008.
 
 Simple measures have been done:
-* The load sensor presented the referenced input/output resistance :  744 Ohms / _reference : 743 Ohms_
+
+
+* Input/output resistance for the load cell:  744 Ohms / _reference : 743 Ohms_
 * Voltage out from the power supply :  20.2V / _reference : 20.1V_
-* Excitation at sensor's pin : 10 V / _reference : 10 V_
-* Signal voltage after amplification span the entirety of the available range.
+* Sensor's excitation : 10 V / _reference : 10 V_
+* The signal acquired cover all the available range
 * Noise : measured : 45mV / _Expected : 35mV_
 
-__From those measures it is deduced than the instrument are well connected and alimented.__
-
-Than a set of known weight were applied to the RFA to validate the amplification ratio and to assess precision.
-From the calibration data a linear model has been extracted _Voltage(Vol) = 0.00980952 + 0.178025 weight(kg)_
-
-__Picture from weights__
+__Those measure are consistent with a well functioning acquisition chain.__
 
 
-##### Troubleshooting
+#### Calibration
 
-The first attempt to set the amplification module to an excitation of 10 V and a gain of 2 mV/V resulted in the CSG110 being in a state where it had an constant sensor output independently of the sensor's state.
-Another attempt on the same model shown the same result finally a more recent module was used with an circuit board closely conform to the one of the manual.
-Once the excitation voltage has properly been setup the acquisition chain behaved accordingly to the expectations.
-Problem with the other amplification modules have not been addressed.
+The next step required to calibrate the wand by using known weights available at the lab:
 
-**Insert Pictures**
+![Weights used to calibrate the sensor. Their combinations allowed to test for 1003, 5230, 6233, 10013 , 11016, 15243 and 16246 grams. Those weights have not been verified before the experiments due to the lack of a proper equipment.](assets/weights.jpg)
 
-#### Spatial location
+The measured voltage have been averaged on a 30s sample then compared with the voltage expected from the data points found in the factory calibration sheets.
+A linear regression of those calibration points (Voltage/weight) gives the following relation:
 
-# Unanswered questions
+ _Voltage(V) = 0.00980952 + 0.178025 weight(g)_
 
-- Is the muscles still operating isometrically when the gait is benefiting from powered exoskeleton?
+ A graphical comparison can be found at Fig where it can be seen that there is a difference in slope with a higher voltage measure that what was expected
+
+
+![Using the data from the experiments and the linear model from the manufacturer, it is observed that the sensibility of the load cell is a little higher than expected, translating into a greater in slope. Additionally no aberrations are visible which indicate that the experiment went overall well.](assets/calibrateVSreality.jpeg)
+
+
+The next step is to evaluate the importance of the noise ( Fig ~  ).
+The average voltage span of the noise is measured and then translated into mass using a linear regression of the measurement points.
+The results obtained were __a noise of 12 mV of amplitude which translate to a mass of 98 g__.
+The weight of the wand have also been deduced and is expected to be around 1.6kg, confirmation obtained using kitchen scale.
+
+![Voltage measured when applying a weight of 6kg. Visually the noise is contained within a 45 mV range.  ](assets/Error_6kg.jpeg)
+
+
 
 # References
