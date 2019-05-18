@@ -171,19 +171,93 @@ The ability to measure the stability of the gait provide a good description of t
 
 ## Burning the O2
 
-The metabolic cost is a broadly accepted indicator of the gait efficiency because it encompass all possible energy expenditure due to the mainly aerobic nature of human cells.
-However it cannot be directly estimated and it is common to use as a proxy such as the volumetric oxygen consumption based on breath analysis.
-Difficulty in using this techniques including slow dynamic due to the metabolic inertia, noise  [@Kramer0021290] and VO2 drift which is a phenomena characterized by the 02 consumption stabilizing at a higher consumption rate due to prolonged strenuous activity .
 
-The characteristics of the measure of oxygen rate consumption lead to sampling time used to determined the steady-state during gait analysis being as long as 2 min [@pmid28642437].
-This is problem if the metabolic cost is the objective for the control strategy because only general mechanism and slow control scheme can be operated.
-Explaining and describing the origin of the metabolic cost during walk is a challenge but it is very important because it allow to build proxy that are more accessible if based for example on kinematic parameters.
+One common interpretation of the natural gait describes it as the result of a long process of metabolic cost reduction constrained with a set of task-related performance criteria.
+Those constraints are the quality of a gait that can be expressed at an high level as the perceived comfort or the ability to adapt to a change in the environment or in the intention.
+The cost optimization is however not the most important objective for a body if confronted to an impairment or a hostile environment will use a costly mechanism to restore subjective quality criteria.
 
-So far the insights gathered point out that an paretic leg in a impairment that induced an increase metabolic cost via a two likely scenario:
+When studying the walking gait it is often omitted to measure the stability or the comfort of the subject because these are dimensions that does not have yet a precise definition.
+In this condition the work start with the prior expert knowledge of mechanical work used to design a likely favorable assistance space.
+Then, the measure of the 02 burned by the body for each assistance strategy give a representation of how well the obtained gaits are accepted by the body.
+If the gait is not stable for example the metabolic cost will remain high due to the recruitment of additional muscles.
 
-- Hip work is used to compensate for the lack of swing velocity, hip work is more costly than ankle work due to the absence of recycling of energy
-- Low joint stiffness give instability to the gait and provoke a costly co-contraction of muscles across the body.
 
+### A difficult measure
+
+As mentioned, the total metabolic cost is a accepted indicator for the gait efficiency but it has the disadvantage of not being directly measurable.
+A common practice is to build a measurable proxy such as the breath-based volumetric oxygen consumption [@Kramer0021290; @pmid28642437] or predictive formulas in some cases[@pmid1597173].
+As there is not yet predictive concept for rehabilitation commercial devices are available for breath-based techniques, but the noise in the 02 and C02 concentration require to average over multiple breaths.
+Combined with the inertia of the metabolic process the measures obtained have a low temporal resolution.
+Experiments often consider 2 min of maintaining the gait as a sufficient time to reach a steady-state that allow for a meaningful reading [@Zhang1280; @QUESADA20163452].
+
+
+In addition metabolic cost are impacted by VO2 drift, a phenomena characterized by the 02 consumption stabilizing at a higher consumption rate when a prolonged strenuous activity is involved.
+For that reasons experiences often involve short walking bout interlaced with sufficient resting period.
+Even so if slow walking is not usually described as strenuous for a healthy subject.
+
+
+In conclusion the informations obtained by breath-based techniques are useful for ordering a set of pattern.
+But their usage within a control loop is problematic, the low temporal resolution does not allow for a stride by stride or inter-stride regulation.
+In reaction, studies are acknowledging this problem and are attempting to build an aggregation of information obtained via wearable physiological sensors such as skin temperature, electrodermal activity, heart rate or accelerometry, ... [@pmid28813842; @Nguyen229].
+The efforts are made by feeding the data to learning algorithms or analytical tools such a regression with to objective of predicting the metabolic cost but it will take some more time to define a proxy faster to measure.
+
+### Search for a optimum pattern
+
+As mentioned the metabolic cost is frequently used to give a order to a set of assistance pattern if the patients are able to walk for a prolonged period of time.
+One search strategy build around the evolution strategy use the a covariance matrix generated from a generation to create the next generation of pattern [@pmid28926613; @Nguyen229].
+The role of the patient is to walk, trying each pattern in the generation to give them a metabolic score.
+Other search methods such as the trivial grid search or the gradient descent are too used for this purpose.
+The Fig illustrate the result of a search using the covariance matrix adaptation evolution strategy.
+On this figure the inter-subject difference between optimum torque is another useful insights on how tailored a solution needs to be.
+
+
+![This graph was published by [@Zhang1280] and represent the optimum average torque-pattern as a function of the % of gait cycle found for each subject. The torque pattern space was defined using peak-time, rise and fall time and peak torque, defining a space very similar of what could be expected from natural ankle (one peak with a faster fall) .](assets/torque_pattern.png)
+
+
+Different search strategies yield different quality of result due to the size of the search space which impose a good convergence speed and the existence of local extremum.
+However this experiment has demonstrated that a reduction of 33% of the metabolic cost associated with walking is possible while other experiment without individual tailoring demonstrated a lot less reduction [@QUESADA20163452].
+So there is still the question of why is it only one third of reduction and what could be the limitation of the current search?
+
+
+
+#### Limitations
+
+
+It has been demonstrated that walking while "pushing more on the foot" reduce the recruitment of the hip.
+However the torque pattern used as the prior assumption for the assistance torque are the torque of a normal walk [@LEWIS2015181].
+It is unknown if a natural gait that rely on the ankle work is different in term of ankle activation.
+But if it is then the previous search will not discover it because learning take time, between 15 and 30 min in some cases [@GORDON20072636], and always start with a higher metabolic cost.
+So if a convenient torque is proposed during the search but would require to walk "as if the ankle was more used" it would be dismissed it in favor of a local optimum close to the learned gait.
+This question have much more repercussion for impaired patient where the "fine optimization tuning" based on metabolic cost can only happen after a gait close to the targeted is learned by the patient.
+
+
+Besides inaccessible extremum using the metabolic cost to drive the search have another limitation when reviewing the insights gathered so far.
+For an impaired patients, victim of a paretic leg, the increase metabolic cost can be explained via a some likely scenarios:
+
+- Hip work is used to compensate for the lack of swing velocity, hip work have possibly an higher metabolic footprint than ankle work due to the necessity of stiffening other joints on the body to use it.
+- Low joint stiffness induce gait instability which cause the recruitment of costly co-contraction across the body (including the upper part).
+- Higher mechanical cost due to increase in collision or lack of recycling.
+
+The observation is that walking is not only costly due to the mechanical effort but also because of the targeted stability.
+While the repartition of cost is yet unknown there are indications that the control mechanism is costly because it uses co-contraction and other hip/knee work.
+If the ankle is not designed to facilitate the control of the lower limb those cost remain unreduced.
+So the question is double:
+
+- Is the ankle playing an important role in natural gait stability? If not there is probably a low ceiling in what can be achieved.
+- How to close the loop with a high temporal resolution? So the orthosis may help reducing joint stiffness.
+
+
+Going forward on the road of cost reduction is not a natural path as the objective of the device is to rehabilitate the patient.
+But if it is considered useful to improve the comfort and efficiency of the patient to replace or assist some of the impaired body control mechanism then the metabolic cost can not be used.
+
+# Defining a gait
+
+
+We presented some insights on the internal mechanisms that could be involved in walking at low speed.
+However there is still a lack of methods for gait representation that is required to implement a controller.
+
+Moreover, the elements found in this space should easily be associated with their metabolic cost.
+Indeed defining this space is required before studying a strategy to navigate in it.
 
 
 # Instrumented Treadmill Calibration
