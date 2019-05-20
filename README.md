@@ -1,4 +1,20 @@
 ---
+abstract: |
+    Physiological Human motion assistance is promising field with strong
+    economic potential. The most common objective for evaluating such
+    devices performance is the metabolic cost and it is used to develop a
+    Human in Loop control system. Understanding the relation between ankle
+    work and metabolic cost for an ankle orthosis require a integrated
+    knowledge of diverse biological function such as trailing limb launch
+    and neural error-correction scheme. This work propose a
+    effect-description of available ankle orthosis and interpret it's
+    potential in terms of metabolic cost based on the current state of
+    literature. Subsequently a review of search strategies proposed to
+    optimize high level controller is presented that illustrates potential
+    metabolic gains by modifying the controller to assist subject specific
+    gait-control mechanism. As a second task this work describes some steps
+    taken towards building a calibration wand for a instrumented
+    treadmill.\pagebreak
 author:
 - Thomas Meessen
 bibliography: 'bibliography.bib'
@@ -25,7 +41,8 @@ title: Study of human in the loop concept for ankle robotic assistance
         -   [A difficult measure](#a-difficult-measure)
         -   [Search for a optimum
             pattern](#search-for-a-optimum-pattern)
--   [Defining a gait](#defining-a-gait)
+-   [Defining and navigating the gait
+    space](#defining-and-navigating-the-gait-space)
 -   [Instrumented Treadmill
     Calibration](#instrumented-treadmill-calibration)
     -   [Calibration Wand](#calibration-wand)
@@ -33,10 +50,69 @@ title: Study of human in the loop concept for ankle robotic assistance
     -   [Load cell calibration](#load-cell-calibration)
         -   [Setting-up the
             amplification](#setting-up-the-amplification)
+-   [Discussion](#discussion)
+    -   [Healthy subjects](#healthy-subjects)
 -   [References](#references)
+
+\pagebreak
 
 Motivation
 ==========
+
+Preserving or enhancing the physiological human motion is a need for
+every human being. Impairments due to injuries which could be of
+cerebral or physical origin or due to age are common.\
+New advancements in actuation, energy storage, miniaturization sensing
+and embedded computational technologies are fertile ground to the
+engineering challenge of an every-day assistance device. Those devices
+can take many names like exoskeleton when it enhances the physical
+capabilities of an healthy user. Or orthosis, when describing a
+assistance provided to compensate for an impairment of the limbs. And
+finally, a prosthesis if the device replace a missing limb.
+
+The ideal form of assistance is the process of predicting the user's
+intent, deciding how to assist and providing the physical assistance and
+all of that using a wearable device. Rehabilitation on the other hand
+require assistance for a transient period and is often performed at the
+office of a practitioner. For this task devices are already on the
+market that are capable of encouraging an active participation of the
+patient and replacing older techniques. But there a number of impairment
+that causes a severe increase in the metabolic cost of walking that need
+for an assistance device to restore some of the old patient's motion
+capabilities. In those cases it is the objective the patient can walk
+again with a metabolic cost close to what it was in the past.
+
+One part of the solution, together with the mechanical design, is the
+controller. A embedded software able to decipher the user intent and
+knowing how to help it. Recent work gives the name to those control
+strategies that assist the human behavior as "Human in the loop". It is
+in this case simply an embellished way to say that it is a living human
+body which is controlled via orthotic actuator to reach desired gait
+performance such as foot clearance (to avoid fall), gait symmetry and
+good swing speed. Another interpretation is that the human is placed in
+the loop to perform a complex task but this interpretation is more
+directed to global computational efforts where the active participation
+of humans is used to solve a problem (see Google Maps for example).
+
+At the foundation of this control loop is the construction of conceptual
+tools that describe the gait and how to help it. This a work that was
+well started in the late 20th century and on a descriptive approach
+start with the level walking and a description of it's phases as done on
+Fig. 1. However due to the biological complexity the informations about
+what are the influences of different impairments and the means to reduce
+the metabolic cost are fragmented in a great number of studies each one
+covering the details of a joints, a sensor technique or a specific
+concern about a gait adaptation to assistance. Building a control
+strategy to reduce the metabolic cost require a broad understanding of
+the gait biological mechanisms not only the mechanical description.
+Moving beyond simple mechanical description, there is a need to
+understand precisely what are the actual performances of the proposed
+assistance strategies and defining what are the steps to obtain a
+control strategy fitting within the every-day use requirement of a
+wearable device.
+
+![Event-based decomposition of level walk in finite states, published by
+[@pmid25557982]](assets/GaitPhases.jpg){width="550px"}
 
 Orthosis
 ========
@@ -313,6 +389,12 @@ muscles and how it affected by the gait modification. The
 electromyography is thus an essential technique that measure the
 activity of muscles by placing electrodes on the skin of patient that
 are able to measure the electric potential generated by muscles cells.
+It has been used for example to pilot an assistance device so that is
+activate with the same pattern that the assisted muscle with the problem
+of surface electromyography becoming increasingly difficult as the
+muscle recruitment reduce as a result of adaption to assistance
+[@GORDON20072636].
+
 The singular insight of this techniques is that it able to measure the
 co-contraction of muscles which are invisible to inverse kinematics but
 induce a yet unquantified metabolic cost. Muscular co-contraction is a
@@ -437,7 +519,7 @@ tailored a solution needs to be.
 average torque-pattern as a function of the % of gait cycle found for
 each subject. The torque pattern space was defined using peak-time, rise
 and fall time and peak torque, defining a space very similar of what
-could be expected from natural ankle (one peak with a faster fall)
+could be expected from natural ankle (one peak torque with a fast fall)
 .](assets/torque_pattern.png)
 
 Different search strategies yield different quality of result due to the
@@ -480,34 +562,72 @@ metabolic cost can be explained via a some likely scenarios:
 -   Higher mechanical cost due to increase in collision or lack of
     recycling.
 
-The observation is that walking is not only costly due to the mechanical
-effort but also because of the targeted stability. While the repartition
-of cost is yet unknown there are indications that the control mechanism
-is costly because it uses co-contraction and other hip/knee work. If the
-ankle is not designed to facilitate the control of the lower limb those
-cost remain unreduced. So the question is double:
+The observations show that walking is not only costly due to the
+mechanical effort but also because of the body self-defined
+stability-target. While the repartition of cost between the different
+accounts is unknown, there are indications that the general control
+mechanism is costly. Mainly because co-contraction has been demonstrated
+and other hip/knee work used for in-swing modification have a notable
+footprint. It concludes that if the ankle orthosis is not designed to
+facilitate the assist the control of the lower limb those cost remain
+untouchable. Moving forward, the question is double:
 
 -   Is the ankle playing an important role in natural gait stability? If
     not there is probably a low ceiling in what can be achieved.
 -   How to close the loop with a high temporal resolution? So the
     orthosis may help reducing joint stiffness.
 
-Going forward on the road of cost reduction is not a natural path as the
-objective of the device is to rehabilitate the patient. But if it is
-considered useful to improve the comfort and efficiency of the patient
-to replace or assist some of the impaired body control mechanism then
-the metabolic cost can not be used.
+In a more general view choosing the road of cost reduction may not seems
+a natural path as the objective of the device is to rehabilitate the
+patient. So there is a question on what rehabilitation product does the
+market need. If it is considered useful to improve the comfort and
+efficiency of the patient to replace or assist some of the impaired body
+control mechanism then the metabolic cost can not be the (direct)
+objective for the search implemented by the control loop.
 
-Defining a gait
-===============
+Defining and navigating the gait space
+======================================
 
-We presented some insights on he internal mechanisms that could be
-involved in walking at low speed. However there is still a lack of gait
-representation. Or, to implement a controller which aim at reducing the
-metabolic cost a space of possible gait is needed. Moreover, the
-elements found in this space should easily be associated with their
-metabolic cost. Indeed defining this space is required before studying a
-strategy to navigate in it.
+Insights on the internal mechanisms possibly involved in walking at low
+speed are not sufficient so far to define a method capable of describing
+a gait. On a first try the wish list for gait definition might look like
+the set of all muscles's activation patterns and the dynamic of every
+body-segments. A quick reflexion show that is too much for a feasible
+device.
+
+Some of the constraints are the sensor's wearability and temporal
+resolution. IMU and skin sensors are good in both situation and have
+already been investigated as VO2 proxy [@pmid28813842]. However putting
+as much sensor as possible is not a comfortable technique and some
+reduction should be done. To help with this question let's look at three
+dimension of the gait that are of importance:
+
+-   Mechanical efficiency; Measuring the dissipation, assessing the
+    efficiency of the muscle recruited.
+-   Control required; Evaluating the efforts recruited by the body to
+    control the gait.
+-   User comfort and learning curve; Is this a transient gait, a gait
+    that the patient never learned?
+
+For each dimension no definite answer on what needs to be measured is
+available yet. But based on published work direction this selection of
+pertinent measures is an on-going process. For mechanical efficiency, on
+method is the Complementary Limb Motion Estimation that exploits the
+high inter-joint coordination to infer the trajectory for the body.
+Extension of this technique also included the projected joint stiffness
+which really give a good cost description of the gait. To better
+understand the patient comfort, signal originating from buttons can be
+installed. And the literature go on with the array of techniques that
+require to be tested. To illustrate the extend of the work needed to
+navigate the assistance space, it is interesting to have a look on a
+general control framework proposed by [@pmid25557982] at Fig. 4.
+
+![Besides information flow between Environment, User, Orthosis and
+Controller, this schematic illustrate a hierarchical controller. Where
+what have previously been designated High-Level control is separated in
+2 parts with one being the computation of the user's intention and the
+other the generation of the assistance scheme based on this
+intent.](assets/Control_Framework.jpg){width="440px"}
 
 Instrumented Treadmill Calibration
 ==================================
@@ -683,8 +803,32 @@ obtained were **a noise of 12 mV of amplitude which translate to a mass
 of 98 g**. The weight of the wand have also been deduced and is expected
 to be around 1.6kg, confirmation obtained using kitchen scale.
 
-![Voltage measured when applying a weight of 6kg. Visually the noise is
-contained within a 45 mV range.](assets/Error_6kg.jpeg)
+![Voltage measured when applying a weight of 6kg. Visual observation
+note that the noise is contained within a 45 mV
+range.](assets/Error_6kg.jpeg)
+
+Discussion
+==========
+
+Healthy subjects
+----------------
+
+While most of the current ankle orthosis successfully focus on the
+diminution of Soleus and Gastrocnemius recruitment in healthy subject it
+is unclear is the claimed reduction in metabolic cost comes from the
+ankle muscle-tendon complex or in combination with a reduced hip work
+and possible lower joint stiffness. Without improving of the mechanical
+design it seems probable that further improvement of the high level
+controller can yield better reduction in muscle recruitment related to
+error-correction and particularly for the co-contraction in the upper
+body induced by hip work.
+
+Those improvements should look at the modulation of task of "launching
+the trailing leg" with regards to possible transient-errors in the gait
+and the interpretation of hip work detected during swing. Big data
+analysis are required to classify transient gait-error and detectable
+neural-control interventions based on subject-specific feature and
+inter-subject variation.
 
 References {#references .unnumbered}
 ==========
