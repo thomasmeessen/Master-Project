@@ -1,26 +1,28 @@
 ---
 abstract: |
-    Physiological Human motion assistance is promising field with strong
+    Physiological Human motion assistance is a field of research with strong
     economic potential. The most common objective for evaluating such
     devices performance is the metabolic cost and it is used to develop a
     Human in Loop control system. Understanding the relation between ankle
     work and metabolic cost for an ankle orthosis require a integrated
     knowledge of diverse biological function such as trailing limb launch
     and neural error-correction scheme. This work propose a
-    effect-description of available ankle orthosis and interpret it's
-    potential in terms of metabolic cost based on the current state of
-    literature. Subsequently a review of search strategies proposed to
-    optimize high level controller is presented that illustrates potential
-    metabolic gains by modifying the controller to assist subject specific
-    gait-control mechanism. As a second task this work describes some steps
-    taken towards building a calibration wand for a instrumented
-    treadmill.\pagebreak
+    effect-description of available ankle orthosis. Followed by a
+    description of some common techniques used to gain insights and they
+    contribution to the interpretation of the ankle potential in terms of
+    metabolic cost. Based on those results a review of search strategies
+    propose to optimize high level controller by including assistance to
+    subject specific gait-control mechanism. As a second task, this work
+    describes some steps taken towards building a calibration wand for a
+    instrumented treadmill.\newpage
 author:
 - Thomas Meessen
 bibliography: 'bibliography.bib'
 link-citations: True
 numbersections: True
-title: Study of human in the loop concept for ankle robotic assistance
+title: |
+    Study of potential improvement for high level controller in ankle
+    robotic assistance
 ---
 
 -   [Motivation](#motivation)
@@ -52,16 +54,29 @@ title: Study of human in the loop concept for ankle robotic assistance
             amplification](#setting-up-the-amplification)
 -   [Discussion](#discussion)
     -   [Healthy subjects](#healthy-subjects)
+    -   [Impaired subject](#impaired-subject)
 -   [References](#references)
 
-\pagebreak
+\newpage
+
+**Acknowledgment**
+
+*Many thanks for the personal of the Robotics & MultiBody Mechanics
+Research Group for their kindness and assistance during the phases of
+this project particularly to Louis Flynn for it's guidance during this
+project and help with learning the labs instruments. Thank you also the
+members of the lab involved in the manufacturing pieces for their
+diligence and precision.*
+
+\newpage
 
 Motivation
 ==========
 
 Preserving or enhancing the physiological human motion is a need for
-every human being. Impairments due to injuries which could be of
-cerebral or physical origin or due to age are common.\
+each human being. There is always the risk of impairments due to
+injuries which could be of cerebral or physical origin and trivially the
+risk of old age.\
 New advancements in actuation, energy storage, miniaturization sensing
 and embedded computational technologies are fertile ground to the
 engineering challenge of an every-day assistance device. Those devices
@@ -79,8 +94,8 @@ market that are capable of encouraging an active participation of the
 patient and replacing older techniques. But there a number of impairment
 that causes a severe increase in the metabolic cost of walking that need
 for an assistance device to restore some of the old patient's motion
-capabilities. In those cases it is the objective the patient can walk
-again with a metabolic cost close to what it was in the past.
+capabilities. In those cases it is the objective that the patient can
+walk again with a metabolic cost close to what it was in the past.
 
 One part of the solution, together with the mechanical design, is the
 controller. A embedded software able to decipher the user intent and
@@ -815,20 +830,55 @@ Healthy subjects
 
 While most of the current ankle orthosis successfully focus on the
 diminution of Soleus and Gastrocnemius recruitment in healthy subject it
-is unclear is the claimed reduction in metabolic cost comes from the
+is unclear if the claimed reduction in metabolic cost comes from the
 ankle muscle-tendon complex or in combination with a reduced hip work
 and possible lower joint stiffness. Without improving of the mechanical
 design it seems probable that further improvement of the high level
 controller can yield better reduction in muscle recruitment related to
 error-correction and particularly for the co-contraction in the upper
-body induced by hip work.
+body induced by hip work. This is justified by the high efficiency of
+the muscle being replaced indicating, but without yet any empirical
+evidences, that the source of the metabolic reduction might come from
+other muscles in the body.
 
 Those improvements should look at the modulation of task of "launching
 the trailing leg" with regards to possible transient-errors in the gait
 and the interpretation of hip work detected during swing. Big data
 analysis are required to classify transient gait-error and detectable
 neural-control interventions based on subject-specific feature and
-inter-subject variation.
+inter-subject variation. The concern about temporal resolution and
+absolute resolution for this work is high and a assessment should be
+made of what inter-stride variation can be detected with probabilistic
+significance using 6DOF inverse dynamic. Launching the foot is question
+of timing on level steady walk bout of 2 min a guess based on averaged
+parameters is good enough and have helped to demonstrate the mechanical
+soundness of the devices. But moving forward on mechanical design with
+the proposed instrumentation oriented toward phase in the gait-cycle
+recognition is inefficient because any progress on the metabolic cost
+will be dominated by the recruitment of yet invisible neural-driven
+control.
+
+Impaired subject
+----------------
+
+Working with impaired subject is hard, prolonged walking bout are not
+available and there is a great end-effect variation in the possible
+impairments. Or, badly optimized push-off assistance have been
+demonstrated to have near to no positive effect on gait cost. In
+addition fear of falling and frequent errors in gait lead to really
+active control scheme. Those points make it very hard for currently
+proposed phase-driven and stride-invariant high level controller to
+compensate for any additional mass placed on the foot and the comfort
+(including price) concerns it may pauses.
+
+The wearable instrumentation and the hierarchical control scheme needs
+to be more mature for enabling everyday usage whatever the mechanical
+design performances but for different reasons than healthy subjects. The
+potential gain of powered push-off is better in impaired subject because
+they do not have access to energy recycling in the Achilles tendon but
+stability of walk is much worse as it is for elderly people. Comfort of
+walking might even go down if the foot is launched from a erroneous
+position.
 
 References {#references .unnumbered}
 ==========
