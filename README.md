@@ -861,15 +861,15 @@ control.
 Impaired subject
 ----------------
 
-Working with impaired subject is hard, prolonged walking bout are not
-available and there is a great end-effect variation in the possible
-impairments. Or, badly optimized push-off assistance have been
-demonstrated to have near to no positive effect on gait cost. In
-addition fear of falling and frequent errors in gait lead to really
-active control scheme. Those points make it very hard for currently
-proposed phase-driven and stride-invariant high level controller to
-compensate for any additional mass placed on the foot and the comfort
-(including price) concerns it may pauses.
+Working with impaired subjects is hard mainly because prolonged walking
+bouts are not available and due to the important variations in the
+possible impairments. But as previously mentioned, badly optimized
+push-off assistance have been demonstrated to have near to no positive
+effect on gait cost. In addition fear of falling and frequent errors in
+gait lead to really active control scheme. Those points make it very
+hard for currently proposed phase-driven and stride-invariant high level
+controller to compensate for any additional mass placed on the foot and
+the comfort (including price) concerns it may pauses.
 
 The wearable instrumentation and the hierarchical control scheme needs
 to be more mature for enabling everyday usage whatever the mechanical
